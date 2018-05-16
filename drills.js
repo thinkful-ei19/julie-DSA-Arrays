@@ -11,10 +11,12 @@ class juArray {
 
     push(value) {
         if(this.length >= this._capacity) {
-            this._resize((this.length +1) * Array.SIZE_RATIO);
+          this._resize((this.length + 1) * Array.SIZE_RATIO);
         }
         memory.set(this.ptr + this.length, value);
         this.length++;
-    }
+      }
+
+      
 
 }
