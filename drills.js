@@ -11,7 +11,7 @@ class juArray {
 
     push(value) {
         if(this.length >= this._capacity) {
-          this._resize((this.length + 1) * Array.SIZE_RATIO);
+          this._resize((this.length + 1) * juArray.SIZE_RATIO);
         }
         memory.set(this.ptr + this.length, value);
         this.length++;
@@ -47,5 +47,21 @@ class juArray {
         return value;
     }
     //O(1)
+
+    insert(index, value) {
+        if (index < 0 || index >= this.length) {
+            throw new Error('Index error');
+        }
+
+        if (this.length >= this._capacity) {
+            this._resize((this.length + 1) * juArray.SIZE_RATIO);
+        }
+
+        memory.copy(this.ptr + index + 1, this.ptr + index, this.length - index);
+        memory.set(this.ptr + index, value);
+        this.length++;
+    }
+    //O(1) && O(n)
+
     
 }
