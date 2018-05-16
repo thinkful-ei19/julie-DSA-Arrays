@@ -1,17 +1,18 @@
 'use strict';
 
-const memory = require('./memory');
+const mem = require('./memory');
+const memory = new mem();
 
-
-class juArray {
+class Array {
     constructor() {
         this.length = 0;
+        this._capacity = 0;
         this.ptr = memory.allocate(this.length);
     }
 
     push(value) {
         if(this.length >= this._capacity) {
-          this._resize((this.length + 1) * juArray.SIZE_RATIO);
+          this._resize((this.length + 1) * Array.SIZE_RATIO);
         }
         memory.set(this.ptr + this.length, value);
         this.length++;
@@ -54,7 +55,7 @@ class juArray {
         }
 
         if (this.length >= this._capacity) {
-            this._resize((this.length + 1) * juArray.SIZE_RATIO);
+            this._resize((this.length + 1) * Array.SIZE_RATIO);
         }
 
         memory.copy(this.ptr + index + 1, this.ptr + index, this.length - index);
@@ -63,5 +64,34 @@ class juArray {
     }
     //O(1) && O(n)
 
-    
+    remove(index) {
+        if (index < 0 || index >= this.length) {
+            throw new Error('Index error');
+        }
+        memory.copy(this.ptr + index, this.ptr + index + 1, this.length - index - 1);
+        this.length--;
+    }
+    //O(1) 
 }
+
+function main(){
+
+    Array.SIZE_RATIO = 3;
+
+    //create an instance of the array class
+    let julieArr = new Array();
+
+    //add an item to the array
+    julieArr.push(3);
+    // Array { length: 1, _capacity: 3, ptr: 0 }
+    julieArr.push(5);
+    julieArr.push(15);
+    julieArr.push(19);
+    julieArr.push(45);
+    julieArr.push(10);
+    //
+    console.log(julieArr);
+}
+
+
+main();
