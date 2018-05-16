@@ -87,45 +87,45 @@ function main(){
     let julieArr = new Array();
 
     //add an item to the array
-    julieArr.push(3);
-    //Array { length: 1, _capacity: 3, ptr: 0 }
-    julieArr.push(5);
-    //Array { length: 2, _capacity: 3, ptr: 0 }
-    julieArr.push(15);
-    //Array { length: 3, _capacity: 3, ptr: 0 }
-    julieArr.push(19);
-    //Array { length: 4, _capacity: 12, ptr: 3 }
-    julieArr.push(45);
-    //Array { length: 5, _capacity: 12, ptr: 3 }
-    julieArr.push(10);
-    //Array { length: 6, _capacity: 12, ptr: 3 }
-    julieArr.push(2);
-    //Array { length: 6, _capacity: 12, ptr: 3 }
-    //for length, there are 6 items, capacity refers to the size
-    //and how many times you can hold without needing to resize
-    //pointer first set at that capacity so moved to a new location
-    //pointer in array tells first location of array
-    //before array started at address 0, but over capacity, so had to find new location which gives bigger capacity
-    //copy and move to new one 
+    // julieArr.push(3);
+    // //Array { length: 1, _capacity: 3, ptr: 0 }
+    // julieArr.push(5);
+    // //Array { length: 2, _capacity: 3, ptr: 0 }
+    // julieArr.push(15);
+    // //Array { length: 3, _capacity: 3, ptr: 0 }
+    // julieArr.push(19);
+    // //Array { length: 4, _capacity: 12, ptr: 3 }
+    // julieArr.push(45);
+    // //Array { length: 5, _capacity: 12, ptr: 3 }
+    // julieArr.push(10);
+    // //Array { length: 6, _capacity: 12, ptr: 3 }
+    // julieArr.push(2);
+    // //Array { length: 6, _capacity: 12, ptr: 3 }
+    // //for length, there are 6 items, capacity refers to the size
+    // //and how many times you can hold without needing to resize
+    // //pointer first set at that capacity so moved to a new location
+    // //pointer in array tells first location of array
+    // //before array started at address 0, but over capacity, so had to find new location which gives bigger capacity
+    // //copy and move to new one 
 
-    julieArr.pop();
-    //Array { length: 6, _capacity: 12, ptr: 3 }
-    julieArr.pop();
-    //Array { length: 5, _capacity: 12, ptr: 3 }
-    julieArr.pop();  
-    //Array { length: 4, _capacity: 12, ptr: 3 }  
-    console.log(julieArr);
-    //pop takes off one keys of the array
-    //slots that the elements in array are still bare 
-    //just holding values to be overwritten
-    console.log(julieArr.get(0));
-    //3
-    julieArr.remove(0);
-    julieArr.remove(0);
-    julieArr.remove(0);
+    // julieArr.pop();
+    // //Array { length: 6, _capacity: 12, ptr: 3 }
+    // julieArr.pop();
+    // //Array { length: 5, _capacity: 12, ptr: 3 }
+    // julieArr.pop();  
+    // //Array { length: 4, _capacity: 12, ptr: 3 }  
+    // console.log(julieArr);
+    // //pop takes off one keys of the array
+    // //slots that the elements in array are still bare 
+    // //just holding values to be overwritten
+    // console.log(julieArr.get(0));
+    // //3
+    // julieArr.remove(0);
+    // julieArr.remove(0);
+    // julieArr.remove(0);
+    // julieArr.remove(0);    
     julieArr.push("tauhida");
-    julieArr.remove(0);    
-    console.log(julieArr);
+    console.log(julieArr.get(0));
     // pushing tauhida NaN has to do with memory CLASS
     // when inserting string, memory class accepts numbers
     // array is contiguous block of memory and wants to keep it in same type
@@ -142,16 +142,5 @@ function main(){
 // this is done at js at run time, it isn't pre allocated
 // do you understand the type? and understand why it's being restricted?
 
-
-
-
-
-
-
-
-
-//for solving interview questions, using built in arrays
-//1 change url, keep in mind what happens in memory 
- 
 
 main();
