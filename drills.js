@@ -81,7 +81,6 @@ class Array {
 }
 
 function main(){
-
     Array.SIZE_RATIO = 3;
 
     //create an instance of the array class
@@ -119,14 +118,22 @@ function main(){
     //pop takes off one keys of the array
     //slots that the elements in array are still bare 
     //just holding values to be overwritten
+    console.log(julieArr.get(0));
+    //3
+    julieArr.remove(0);
+    julieArr.remove(0);
+    julieArr.remove(0);
+    julieArr.push("tauhida");
+    julieArr.remove(0);    
+    console.log(julieArr);
+    // pushing tauhida NaN has to do with memory CLASS
+    // when inserting string, memory class accepts numbers
+    // array is contiguous block of memory and wants to keep it in same type
 
 }
 
 
 
-// pushing tauhida NaN has to do with memory
-// when inserting string, memory class accepts numbers
-// array is contiguous block of memory and wants to keep it in same type
 
 
 // js does things in a certain way, other language won't do it the same
