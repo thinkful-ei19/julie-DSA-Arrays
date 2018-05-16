@@ -10,7 +10,7 @@ class Array {
         this.ptr = memory.allocate(this.length);
     }
 
-    push(value) {
+    push(value) { 
         if(this.length >= this._capacity) {
           this._resize((this.length + 1) * Array.SIZE_RATIO);
         }
@@ -20,13 +20,19 @@ class Array {
     //O(1) & O(n)
 
     _resize(size) {
+        //_ helper other core functions of array class 
+        //push pop are public 
+        //this is a private function
+        //just a naming convention to display private function 
         const oldPtr = this.ptr;
         this.ptr = memory.allocate(size);
         if(this.ptr === null) {
             throw new Error('Out of memory');
         }
         memory.copy(this.ptr, oldPtr, this.length);
-        memory.free(oldPtr);
+        memory.free(oldPtr); //free isn't doing anything 
+        //automatically calls free function in newer tech
+        //mock up to tell you when resizing, other spaces are being freed up
         this._capacity = size;
     }
     //O(n) 
@@ -83,15 +89,62 @@ function main(){
 
     //add an item to the array
     julieArr.push(3);
-    // Array { length: 1, _capacity: 3, ptr: 0 }
+    //Array { length: 1, _capacity: 3, ptr: 0 }
     julieArr.push(5);
+    //Array { length: 2, _capacity: 3, ptr: 0 }
     julieArr.push(15);
+    //Array { length: 3, _capacity: 3, ptr: 0 }
     julieArr.push(19);
+    //Array { length: 4, _capacity: 12, ptr: 3 }
     julieArr.push(45);
+    //Array { length: 5, _capacity: 12, ptr: 3 }
     julieArr.push(10);
-    //
+    //Array { length: 6, _capacity: 12, ptr: 3 }
+    julieArr.push(2);
+    //Array { length: 6, _capacity: 12, ptr: 3 }
+    //for length, there are 6 items, capacity refers to the size
+    //and how many times you can hold without needing to resize
+    //pointer first set at that capacity so moved to a new location
+    //pointer in array tells first location of array
+    //before array started at address 0, but over capacity, so had to find new location which gives bigger capacity
+    //copy and move to new one 
+
+    julieArr.pop();
+    //Array { length: 6, _capacity: 12, ptr: 3 }
+    julieArr.pop();
+    //Array { length: 5, _capacity: 12, ptr: 3 }
+    julieArr.pop();  
+    //Array { length: 4, _capacity: 12, ptr: 3 }  
     console.log(julieArr);
+    //pop takes off one keys of the array
+    //slots that the elements in array are still bare 
+    //just holding values to be overwritten
+
 }
 
+
+
+// pushing tauhida NaN has to do with memory
+// when inserting string, memory class accepts numbers
+// array is contiguous block of memory and wants to keep it in same type
+
+
+// js does things in a certain way, other language won't do it the same
+// js class has been implemented in a way that can accept different types
+// have array but each block is set to different size (min and max)
+// this is done at js at run time, it isn't pre allocated
+// do you understand the type? and understand why it's being restricted?
+
+
+
+
+
+
+
+
+
+//for solving interview questions, using built in arrays
+//1 change url, keep in mind what happens in memory 
+ 
 
 main();
