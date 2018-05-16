@@ -16,7 +16,23 @@ class juArray {
         memory.set(this.ptr + this.length, value);
         this.length++;
       }
+    //O(1) & O(n)
 
-      
+    _resize(size) {
+        const oldPtr = this.ptr;
+        this.ptr = memory.allocate(size);
+        if(this.ptr === null) {
+            throw new Error('Out of memory');
+        }
+        memory.copy(this.ptr, oldPtr, this.length);
+        memory.free(oldPtr);
+        this._capacity = size;
+    }
+    get(index) {
+        if(index<0 || index >= this.length) {
+            throw new Error('Index error');
+        }
+        return memory.get(this.ptr + index);
+    }
 
 }
