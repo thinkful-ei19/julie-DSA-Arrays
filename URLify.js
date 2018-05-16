@@ -10,3 +10,4 @@ function urlString(url) {
 }
 
 console.log(urlString("jay and bey"))
+//O(n) - Linear Time

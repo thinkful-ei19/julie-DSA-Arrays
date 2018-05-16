@@ -16,3 +16,4 @@ function maxSum(arr) {
 }
 
 console.log(maxSum(example));
+//O(n) - Linear Time

@@ -13,3 +13,4 @@ function filterArray(array) {
 }
 
 console.log(filterArray(arr));
+//O(n) - Linear Time
