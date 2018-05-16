@@ -28,11 +28,24 @@ class juArray {
         memory.free(oldPtr);
         this._capacity = size;
     }
+    //O(n) 
+
     get(index) {
-        if(index<0 || index >= this.length) {
+        if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
         return memory.get(this.ptr + index);
     }
+    //O(1)
 
+    pop() {
+        if (this.length == 0) {
+            throw new Error('Index error');
+        }
+        const value = memory.get(this.ptr + this.length - 1);
+        this.length--;
+        return value;
+    }
+    //O(1)
+    
 }
