@@ -13,3 +13,4 @@ function mergeArrays(inp1, inp2) {
 }
 
 mergeArrays(input1, input2)
+//O(n) - Linear Time
