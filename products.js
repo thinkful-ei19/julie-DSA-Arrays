@@ -28,3 +28,4 @@ function products(arr) {
 }
 
 console.log(products(exampleArr))
+//O(n^2) - Polynomial Time 
